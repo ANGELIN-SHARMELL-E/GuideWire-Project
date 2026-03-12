@@ -161,60 +161,55 @@ Example:
 ❌ Worker logged in + rejected orders intentionally → fraud flag
 
 🏗 System Architecture
-        +-------------------+
-        |   Weather API     |
-        +-------------------+
-                |
-        +-------------------+
-        | Pollution API     |
-        +-------------------+
-                |
-        +-------------------+
-        | Disaster Alerts   |
-        +-------------------+
 
-                ↓
-
-        +----------------------+
-        | Disruption Engine    |
-        +----------------------+
-
-                ↓
-
-+----------------------------------------+
-| Delivery Platform Integrations         |
-|----------------------------------------|
-| Zomato | Swiggy | Zepto | Amazon | Dunzo |
-+----------------------------------------+
-
-                ↓
-
-        +-------------------+
-        | AI Engine         |
-        |-------------------|
-        | Risk Prediction   |
-        | Fraud Detection   |
-        | Income Loss Model |
-        +-------------------+
-
-                ↓
-
-+------------------------------------+
-| Parametric Insurance Platform      |
-|------------------------------------|
-| Worker Registration                |
-| Weekly Policy Management           |
-| Claim Trigger System               |
-| Payout Processing                  |
-+------------------------------------+
-
-                ↓
-
-        +-------------------+
-        | Payment Gateway   |
-        | (UPI / Bank)      |
-        +-------------------+
+       +-------------------+      +-------------------+      +-------------------+
+|    Weather API    |      |   Pollution API   |      |   Disaster Alerts |
++-------------------+      +-------------------+      +-------------------+
+           \                        |                        /
+            \                       |                       /
+             \                      |                      /
+              --------------------------------------------
+                              |
+                              v
+                    +----------------------+
+                    |   Disruption Engine  |
+                    +----------------------+
+                              |
+                              v
++---------------------------------------------------------------+
+|            Delivery Platform Integrations                     |
+|---------------------------------------------------------------|
+|     Zomato API     |     Swiggy API     |     Zepto API       |
+|     Amazon API     |     Dunzo API                            |
++---------------------------------------------------------------+
+                              |
+                              v
+                     +----------------------+
+                     |       AI Engine      |
+                     |----------------------|
+                     | Risk Prediction      |
+                     | Fraud Detection      |
+                     | Income Loss Model    |
+                     +----------------------+
+                              |
+                              v
+               +----------------------------------+
+               | Parametric Insurance Platform    |
+               |----------------------------------|
+               | Worker Registration              |
+               | Weekly Policy Management         |
+               | Claim Trigger System             |
+               | Automated Payout Processing      |
+               +----------------------------------+
+                              |
+                              v
+                    +----------------------+
+                    |     Payment System   |
+                    |      (UPI / Bank)    |
+                    +----------------------+
+                    
 🔄 Insurance Claim Flow
+
 Worker Registration
         |
         v
@@ -249,6 +244,7 @@ Claim Rejected     Calculate Income Loss
                         |
                         v
                    Instant Payout
+                   
 🛠 Tech Stack
 Frontend
 
